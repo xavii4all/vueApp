@@ -7,17 +7,19 @@
 </head>
 <body>
   <div id="app">
-    <button class="vue-btn" @click="reveal">Reveal the Secret Number</button>
+    <span>Change the text</span>
+    <input v-model="text" placeholder="text... ">
+    <div>Lowercased: {{lowerText}} </div>
   </div>
   <script>
     var app = new Vue({
       el: '#app',
       data: {
-        secretNumber: Math.floor(Math.random() * 100) + 1
+        text: ''
       },
-      methods: {
-        reveal() {
-          alert(`Here's the secret number: ${this.secretNumber}`)
+      computed: {
+        lowerText(){
+          return this.text.toLowerCase()
         }
       }
     })
